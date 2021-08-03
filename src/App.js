@@ -46,7 +46,7 @@ class App extends Component {
 
     return (
       <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <nav className="navbar sticky-top navbar-expand-xl navbar-dark bg-dark">
           <a href="http://localhost:4200/home" className="navbar-brand">
             The Smiling Dental Office
           </a>
@@ -54,7 +54,6 @@ class App extends Component {
             <div class="naviiii">
               {currentUser ? (
                 <div className="navbar-nav mr-auto">
-                  <ul class="nav justify-content-end">
                   <li className="nav-item">
                   
                   <Link to={"/home"} className="nav-link">
@@ -86,15 +85,38 @@ class App extends Component {
                       {currentUser.username}
                     </Link>
                   </li>
+                  {showModeratorBoard && (
+              <li className="nav-item">
+                <Link to={"/mod"} className="nav-link">
+                  Moderator Board
+                </Link>
+              </li>
+            )}
+
+                    {showAdminBoard && (
+                      <li className="nav-item">
+                        <Link to={"/admin"} className="nav-link">
+                          Admin Board
+                        </Link>
+                      </li>
+                    )}
+
+                    {/* {currentUser && (
+                      <li className="nav-item">
+                        <Link to={"/user"} className="nav-link">
+                          User
+                        </Link>
+                      </li>
+                    )} */}
+
                   <li className="nav-item">
                     <a href="http://localhost:4200/home" className="nav-link" onClick={this.logOut}>
                       LogOut
                     </a>
                   </li>
-                  </ul>
                 </div>
               ) : (
-                <div className="navbar-nav ml-auto">
+                <span className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <Link to={"/login"} className="nav-link">
                       Login
@@ -106,38 +128,9 @@ class App extends Component {
                       Sign Up
                     </Link>
                   </li>
-                </div>    
+                </span>    
               )}
-
-              
-
-            {showModeratorBoard && (
-              <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
-                </Link>
-              </li>
-            )}
-
-            {showAdminBoard && (
-              <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin Board
-                </Link>
-              </li>
-            )}
-
-            {/* {currentUser && (
-              <li className="nav-item">
-                <Link to={"/user"} className="nav-link">
-                  User
-                </Link>
-              </li>
-            )} */}
               </div>
-
-              
-          
         </nav>
 
         <div className="container mt-3">
