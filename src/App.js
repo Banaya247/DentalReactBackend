@@ -46,14 +46,14 @@ class App extends Component {
 
     return (
       <div>
-        <nav className="navbar sticky-top navbar-expand-xl navbar-dark bg-dark">
+        <nav className="navbar sticky-top navbar-expand-xl navbar-dark bg-dark justify-content-between">
           <a href="http://localhost:4200/home" className="navbar-brand">
             The Smiling Dental Office
           </a>
 
             <div class="naviiii">
               {currentUser ? (
-                <div className="navbar-nav mr-auto">
+                <div className="navbar-nav ml-auto">
                   <li className="nav-item">
                   
                   <Link to={"/home"} className="nav-link">
@@ -116,7 +116,7 @@ class App extends Component {
                   </li>
                 </div>
               ) : (
-                <span className="navbar-nav ml-auto">
+                <div className="navbar-nav mr-auto justify-content-end">
                   <li className="nav-item">
                     <Link to={"/login"} className="nav-link">
                       Login
@@ -128,7 +128,7 @@ class App extends Component {
                       Sign Up
                     </Link>
                   </li>
-                </span>    
+                </div>    
               )}
               </div>
         </nav>
