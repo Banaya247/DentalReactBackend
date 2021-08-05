@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-
 import AuthService from "./services/auth.service";
 
 import Login from "./components/login.component";
@@ -13,6 +12,7 @@ import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import PatientsPersonalInformation from "./components/patients-personal-information.component";
+import PatientMedicalRecord from "./components/patient-medical-record";
 
 class App extends Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class App extends Component {
                   </Link>
                 </li>
                 <li>  
-                  <Link to={"/home"} className="nav-link">
+                  <Link to={"/patient-medical-record"} className="nav-link">
                     Patient's Medical Records
                   </Link>
                 </li>
@@ -137,7 +137,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path={["/", "/home"]} component={Home} />
-            <Route exact path="/patients-personal-information" component={PatientsPersonalInformation} />
+            <Route exact path="/patient-personal-information" component={PatientsPersonalInformation} />
+            <Route exact path="/patient-medical-record" component={PatientMedicalRecord} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/user" component={BoardUser} />
@@ -146,8 +147,13 @@ class App extends Component {
           </Switch>
         </div>
       </div>
+      
     );
+  
   }
+ 
+
+        
 }
 
 export default App;
