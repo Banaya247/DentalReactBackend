@@ -12,6 +12,7 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
+import PatientsPersonalInformation from "./components/patients-personal-information.component";
 
 class App extends Component {
   constructor(props) {
@@ -54,9 +55,8 @@ class App extends Component {
             <div class="naviiii">
               {currentUser ? (
                 <div className="navbar-nav ml-auto">
-                  <li className="nav-item">
-                  
-                  <Link to={"/home"} className="nav-link">
+                  <li>
+                  <Link to={"/patients-personal-information"} className="nav-link">
                     Patient's Personal Informations
                   </Link>
                 </li>
@@ -137,6 +137,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path={["/", "/home"]} component={Home} />
+            <Route exact path="/patients-personal-information" component={PatientsPersonalInformation} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/user" component={BoardUser} />
