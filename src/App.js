@@ -13,6 +13,7 @@ import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import PatientsPersonalInformation from "./components/patients-personal-information.component";
+import availablility from "./components/availability.component";
 
 class App extends Component {
   constructor(props) {
@@ -52,15 +53,15 @@ class App extends Component {
             The Smiling Dental Office
           </a>
 
-            <div class="naviiii">
-              {currentUser ? (
-                <div className="navbar-nav ml-auto">
-                  <li>
+          <div class="naviiii">
+            {currentUser ? (
+              <div className="navbar-nav ml-auto">
+                <li>
                   <Link to={"/patients-personal-information"} className="nav-link">
                     Patient's Personal Informations
                   </Link>
                 </li>
-                <li>  
+                <li>
                   <Link to={"/home"} className="nav-link">
                     Patient's Medical Records
                   </Link>
@@ -71,37 +72,37 @@ class App extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/home"} className="nav-link">
+                  <Link to={"/availability"} className="nav-link">
                     Doctor's Availibility
                   </Link>
-                  </li>
-                  <li>
+                </li>
+                <li>
                   <Link to={"/home"} className="nav-link">
                     Accounts
-                  </Link> 
+                  </Link>
                 </li>
+                <li className="nav-item">
+                  <Link to={"/profile"} className="nav-link">
+                    {currentUser.username}
+                  </Link>
+                </li>
+                {showModeratorBoard && (
                   <li className="nav-item">
-                    <Link to={"/profile"} className="nav-link">
-                      {currentUser.username}
+                    <Link to={"/mod"} className="nav-link">
+                      Moderator Board
                     </Link>
                   </li>
-                  {showModeratorBoard && (
-              <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
-                </Link>
-              </li>
-            )}
+                )}
 
-                    {showAdminBoard && (
-                      <li className="nav-item">
-                        <Link to={"/admin"} className="nav-link">
-                          Admin Board
-                        </Link>
-                      </li>
-                    )}
+                {showAdminBoard && (
+                  <li className="nav-item">
+                    <Link to={"/admin"} className="nav-link">
+                      Admin Board
+                    </Link>
+                  </li>
+                )}
 
-                    {/* {currentUser && (
+                {/* {currentUser && (
                       <li className="nav-item">
                         <Link to={"/user"} className="nav-link">
                           User
@@ -109,28 +110,28 @@ class App extends Component {
                       </li>
                     )} */}
 
-                  <li className="nav-item">
-                    <a href="http://localhost:4200/home" className="nav-link" onClick={this.logOut}>
-                      LogOut
-                    </a>
-                  </li>
-                </div>
-              ) : (
-                <div className="navbar-nav mr-auto justify-content-end">
-                  <li className="nav-item">
-                    <Link to={"/login"} className="nav-link">
-                      Login
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link to={"/register"} className="nav-link">
-                      Sign Up
-                    </Link>
-                  </li>
-                </div>    
-              )}
+                <li className="nav-item">
+                  <a href="http://localhost:4200/home" className="nav-link" onClick={this.logOut}>
+                    LogOut
+                  </a>
+                </li>
               </div>
+            ) : (
+              <div className="navbar-nav mr-auto justify-content-end">
+                <li className="nav-item">
+                  <Link to={"/login"} className="nav-link">
+                    Login
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link to={"/register"} className="nav-link">
+                    Sign Up
+                  </Link>
+                </li>
+              </div>
+            )}
+          </div>
         </nav>
 
         <div className="container mt-3">
@@ -140,6 +141,7 @@ class App extends Component {
             <Route exact path="/patients-personal-information" component={PatientsPersonalInformation} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/availability" component={availablility} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
