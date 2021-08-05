@@ -12,6 +12,7 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
+import Appointments from "./components/appointments";
 
 class App extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class App extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/home"} className="nav-link">
+                  <Link to={"/appointments"} className="nav-link">
                     Appointments
                   </Link>
                 </li>
@@ -136,6 +137,7 @@ class App extends Component {
         <div className="container mt-3">
           <Switch>
             <Route exact path="/login" component={Login} />
+            <Route exact path="/appointments" component={Appointments} />
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
